@@ -2,6 +2,8 @@
 def make_primes(limit):
 	composites = []
 	primes = []
+	if limit >= 2:
+		primes.append(2)
 	for i in range(2, limit):
 		for x in range(2, i):
 			if x == i - 1:
