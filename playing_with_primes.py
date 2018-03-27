@@ -2,13 +2,11 @@
 def make_primes(limit):
 	composites = []
 	primes = []
-	if limit >= 2:
-		primes.append(2)
-	for i in range(2, limit):
-		for x in range(2, i):
+	for i in range(1, limit):
+		for x in range(1, i):
 			if x == i - 1:
 				primes.append(i)
-			if i%x == 0:
+			if x != 1 and i%x == 0:
 				composites.append(i)
 				break
 	print primes
