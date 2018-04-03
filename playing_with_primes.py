@@ -11,8 +11,16 @@ def make_primes(limit):
 				break
 	print primes
 
+def is_prime(number):
+	# returns the number if it is prime
+	for x in range(1, number):
+			if x == number - 1:
+				return number
+			if x != 1 and number%x == 0:
+				break
 
-
+print is_prime(5)				
+print is_prime(25)
 
 
 	# composites = []
@@ -39,7 +47,8 @@ def make_primes(limit):
 # make_primes(8)
 
 
-make_primes(55)
+
+# make_primes(55)
 
 
 
