@@ -20,7 +20,7 @@ def is_prime(number):
 				break
 
 print is_prime(5)				
-print is_prime(25)
+print make_primes(25)
 
 
 	# composites = []

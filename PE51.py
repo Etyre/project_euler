@@ -82,8 +82,8 @@ def replace_the_ons_with_digit(number, sequence, digit):
 	return new_int
 
 
-def generate_variations_and_check_if_prime(n, possible_permutations):
-	
+def generate_variations_and_check_if_prime(n, possible_permutations, target_family_size):
+
 
 	for given_permuation_seqence in possible_permutations: #picking the permutation sequence
 
@@ -93,19 +93,34 @@ def generate_variations_and_check_if_prime(n, possible_permutations):
 
 			# replace the "on"s with a given digit
 			current_variation = replace_the_ons_with_digit(n, given_permuation_seqence, digit)
-
 			if is_prime(current_variation) == True and current_variation not in primes_that_share_a_permutation_sequence:
 				primes_that_share_a_permutation_sequence.append(current_variation)
 
 		# these two lines could be constructed as a while loop instead.
-		if len(primes_that_share_a_permutation_sequence) >= 8:
+		if len(primes_that_share_a_permutation_sequence) >= target_family_size:
 			return primes_that_share_a_permutation_sequence
 			
-print find_digits(11)
 
-print find_permuatations(find_digits(11))
+def generate_prime_families(family_size, limit=1000000000000):
 
-print generate_variations_and_check_if_prime(11, find_permuatations(find_digits(11)))
+	primes_that_share_a_permutation_sequence =[]
+	
+	while len(primes_that_share_a_permutation_sequence) >= 9:
+		for i in range(1, limit):
+			for x in range(1, i):
+				if x == i - 1:
+					i = this_prime
+					number_of_digits = find_digits(this_prime)
+					permutation_sequences = find_permuatations(number_of_digits)
+					generate_variations_and_check_if_prime(this_prime, permutation_sequences, family_size)
+
+				if x != 1 and i%x == 0:
+					break
+
+	print "done"
+		
+
+print generate_prime_families(6)
 
 # Another algorthim:
 
