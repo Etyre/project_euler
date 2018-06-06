@@ -5,8 +5,13 @@ def make_fibin_list (max):
 	while current <= max:
 		current, previous = current + previous, current
 		fibin_list += [current]
-		print fibin_list
+	return fibin_list
 
+def sum_evens(this_list):
+	output = 0
+	for i in this_list:
+		if i%2 == 0:
+			output += i
+	return output
 
-make_fibin_list(10)
-
+print (sum_evens(make_fibin_list(4000000)))
