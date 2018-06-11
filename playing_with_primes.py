@@ -1,15 +1,17 @@
 
+
 def make_primes(limit):
-	composites = []
-	primes = []
-	for i in range(1, limit):
-		for x in range(1, i):
-			if x == i - 1:
-				primes.append(i)
+	if limit < 2:
+		return []
+	primes = [2]
+	for i in range(2, limit):
+		for x in primes:
+			# print primes
 			if x != 1 and i%x == 0:
-				composites.append(i)
 				break
-	print primes
+			if x == primes[-1] and i%x != 0:
+				primes.append(i)
+	return primes
 
 def is_prime(number):
 	# returns the number if it is prime
@@ -19,8 +21,11 @@ def is_prime(number):
 			if x != 1 and number%x == 0:
 				break
 
-print is_prime(5)				
-print make_primes(25)
+n = "[put a number here]"
+
+
+make_primes(n)
+print "done"
 
 
 	# composites = []
