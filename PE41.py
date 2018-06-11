@@ -1,9 +1,43 @@
 
+def generate_all_purmutations(list_of_numbers, permutation_peices):
+	if len(list_of_numbers) == 0:
+		return []
+
+	full_list =[]
+
+	for digit in list_of_numbers:
+		new_list_of_numbers = list_of_numbers[:]
+		new_list_of_numbers.remove(digit)
+
+		new_permutation_peices = []
+
+		for elem in permutation_peices:
+			new_permutation_peices += str(digit)+elem
+
+		if len(permutation_peices)== 0:
+			new_permutation_peices = [str(digit)]
+		print new_permutation_peices
+		full_list += generate_all_purmutations(new_list_of_numbers, new_permutation_peices)
+	return full_list
 
 
 
 
 
+
+	# list_to_return =[]
+	# if len(this_list) == 1:
+	# 	return [this_list]
+	# for i in this_list:
+	# 	new_list = this_list[:]
+	# 	new_list.remove (i)
+	# 	print list_to_return
+	# 	list_to_return.extend([i].extend(generate_all_purmutations(new_list)))
+	# return list_to_return
+
+test_list = [1,2,3,4]
+
+print generate_all_purmutations(test_list, [])
 
 # This\/ version works, but it's not very practicable, because it takes too long to run 
 
