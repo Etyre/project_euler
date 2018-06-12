@@ -8,7 +8,7 @@ def generate_all_purmutations(list_of_digits):
 		sting_digit_in_list = [string_digit]
 		
 		digit = list_of_digits[0]
-		return [digit]
+		return string_digit
 
 	for digit in list_of_digits:
 		minus_digit_list = list_of_digits[:]
@@ -19,8 +19,8 @@ def generate_all_purmutations(list_of_digits):
 		print list_of_permumtations_without_the_digit
 		for elem in list_of_permumtations_without_the_digit:
 			#the element should be a string here
-			elem.append(digit)
-			list_to_return.append([elem])
+			new_item = elem + str(digit)
+			list_to_return.append(new_item)
 
 	return list_to_return
 	
@@ -39,7 +39,7 @@ def generate_all_purmutations(list_of_digits):
 	# 	list_to_return.extend([i].extend(generate_all_purmutations(new_list)))
 	# return list_to_return
 
-test_list = [1,2,3,4]
+test_list = [1,2,3]
 
 print generate_all_purmutations(test_list)
 
