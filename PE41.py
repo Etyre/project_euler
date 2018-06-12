@@ -16,14 +16,49 @@ def generate_all_purmutations(list_of_digits):
 		# print minus_digit_list
 
 		list_of_permumtations_without_the_digit = generate_all_purmutations(minus_digit_list)
-		print list_of_permumtations_without_the_digit
+		# print list_of_permumtations_without_the_digit
 		for elem in list_of_permumtations_without_the_digit:
 			#the element should be a string here
 			new_item = elem + str(digit)
 			list_to_return.append(new_item)
 
 	return list_to_return
-	
+
+def convert_to_int_list(list_of_strings):
+	list_of_ints = []
+	for elem in list_of_strings:
+		number = int(elem)
+		list_of_ints.append(number)
+	return list_of_ints
+
+def is_prime(number):
+	# returns the number if it is prime
+	for x in range(1, number):
+			if x == number - 1:
+				return True
+			if x != 1 and number%x == 0:
+				return False
+
+def find_largest_pandigital_prime():
+	limit = 10
+	# we're going to try nine-digit numbers first, so we put one more than 9 as the imput to the range function
+	while limit > 0:
+
+		to_digit = [i for i in range(1, limit)]
+
+		list_of_string_permutations = generate_all_purmutations(to_digit)
+		list_of_int_permutations = convert_to_int_list(list_of_string_permutations)
+		list_of_int_permutations.sort(reverse = True)
+
+		for number in list_of_int_permutations:
+			if is_prime(number):
+				return number
+
+		limit -= 1
+
+
+
+find_largest_pandigital_prime()	
 
 
 
@@ -39,9 +74,8 @@ def generate_all_purmutations(list_of_digits):
 	# 	list_to_return.extend([i].extend(generate_all_purmutations(new_list)))
 	# return list_to_return
 
-test_list = [1,2,3]
 
-print generate_all_purmutations(test_list)
+
 
 # This\/ version works, but it's not very practicable, because it takes too long to run 
 
