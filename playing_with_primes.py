@@ -13,13 +13,18 @@ def make_primes(limit):
 				primes.append(i)
 	return primes
 
+
+# I should also reformat this /\ so that it takes advantage of the x must be smaller than (or = to) n/x insight.
+
 def is_prime(number):
 	# returns the number if it is prime
 	for x in range(1, number):
+		while x <= number/x:
 			if x == number - 1:
 				return number
 			if x != 1 and number%x == 0:
 				break
+		return n
 
 n = "[put a number here]"
 
