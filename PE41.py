@@ -1,5 +1,5 @@
 
-def generate_all_purmutations(list_of_digits):
+def generate_all_permutations(list_of_digits):
 	list_to_return = []
 	# print list_of_digits
 
@@ -10,12 +10,12 @@ def generate_all_purmutations(list_of_digits):
 		digit = list_of_digits[0]
 		return string_digit
 
-	for digit in list_of_digits:
+	for digit in list_of_digits
 		minus_digit_list = list_of_digits[:]
 		minus_digit_list.remove(digit)
 		# print minus_digit_list
 
-		list_of_permumtations_without_the_digit = generate_all_purmutations(minus_digit_list)
+		list_of_permumtations_without_the_digit = generate_all_permutations(minus_digit_list)
 		# print list_of_permumtations_without_the_digit
 		for elem in list_of_permumtations_without_the_digit:
 			#the element should be a string here
@@ -53,7 +53,7 @@ def find_largest_pandigital_prime():
 
 		to_digit = [i for i in range(1, limit)]
 
-		list_of_string_permutations = generate_all_purmutations(to_digit)
+		list_of_string_permutations = generate_all_permutations(to_digit)
 		list_of_int_permutations = convert_to_int_list(list_of_string_permutations)
 		list_of_int_permutations.sort(reverse = True)
 
@@ -76,7 +76,7 @@ print "This is the largest_pandigital_prime: "+ str(find_largest_pandigital_prim
 	# 	new_list = this_list[:]
 	# 	new_list.remove (i)
 	# 	print list_to_return
-	# 	list_to_return.extend([i].extend(generate_all_purmutations(new_list)))
+	# 	list_to_return.extend([i].extend generate_all_permutationss(new_list)))
 	# return list_to_return
 
 

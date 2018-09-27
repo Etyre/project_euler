@@ -85,13 +85,12 @@ def has_property_a(number):
 		print combined_number
 		if not combined_number%prime == 0:
 			return False
-
+		print "prime: "+str(prime)
 		prime = next_prime(prime)
-		print "/"+ str(prime)
 
 	return True 
 
-# print has_property_a (1406357289)
+print has_property_a (419635728)
 
 # Step 1: Generate all pandigital numbers of 0to9 digits
 
@@ -116,12 +115,18 @@ def filter_list_for_property_a(this_list):
 
 	return list_to_output
 
-
 def the_answer_is():
 	list_of_0_to_9_pandigitals = generate_all_x_y_pandigitals(0, 9)
 
-	list_filitered_for_property_a = filter_list_for_property_a(list_of_0_to_9_pandigitals)
-	
+	#some of these have a 0 as the first digit, and therefore are 9 digits long instead of ten, so we need to filter those out.
+	real_list_of_0_to_9_pandigitals = []
+	for number in list_of_0_to_9_pandigitals:
+		length = len(str(number))
+		if length ==10:
+			real_list_of_0_to_9_pandigitals.append(number)
+
+	list_filitered_for_property_a = filter_list_for_property_a(real_list_of_0_to_9_pandigitals)
+
 	print list_filitered_for_property_a
 	sum_of_filtered = 0
 	for number in list_filitered_for_property_a:
