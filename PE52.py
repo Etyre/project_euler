@@ -31,7 +31,22 @@ def check_digits_match(first, second):
 
 	return True
 
-def up_to_6x_with_same_digits(number):
+def check_for_same_digits_of_multiples(number):
+	for x in range(1, 7):
+		if check_digits_match(number, number*x) == False:
+			return False
+	return True
+
+
+def check_for_same_digits_of_multiples_up_to_n(number):
+	for x in range(1, number):
+		if check_for_same_digits_of_multiples(x) == True:
+			return x
+	return "no numbers less than or equal to "+str(number)+" have the relevent property."
+
+
+print check_for_same_digits_of_multiples_up_to_n(200000)
+
 
 
 
