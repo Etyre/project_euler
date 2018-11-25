@@ -120,7 +120,7 @@ def generate_prime_families(family_size, limit=1000000000000):
 	print "done"
 		
 
-print generate_prime_families(6)
+print generate_prime_families(8)
 
 # Another algorthim:
 
